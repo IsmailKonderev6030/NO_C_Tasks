@@ -1,57 +1,69 @@
-﻿using System.Diagnostics;
+﻿using System;
 
-int a,b,c;
-int max,min;
+class Tasks{
 
-// Task 2
-Console.WriteLine("Task 2\n\n");
-Console.WriteLine("Enter first number: ");
-a = Convert.ToInt32(Console.ReadLine());
-Console.WriteLine("Enter second number: ");
-b = Convert.ToInt32(Console.ReadLine());
+      // Task 25
+    public static int Pow(int a, int b){
+      int res = a;
 
-if(a<=b) {min = a; max = b;}
-else     {min = b; max = a;}
+      while(b>1){
+        res *= a;
+        b--;
+      }
 
-Console.WriteLine("max:= " + max);
-Console.WriteLine("min:= " + min + '\n');
+      return res;
+    }
+      // Task 27
+    public static int sumNumber(int number){
+      int res = 0;
 
-// Task 4
-a=b=c=max=0;
+      while(number>9){
+        int temp = number%10;
+        number /= 10;
+        res += temp;
+      }
 
-Console.WriteLine("Task 4\n\n");
-Console.WriteLine("Enter first number: ");
-a = Convert.ToInt32(Console.ReadLine());
-Console.WriteLine("Enter second number: ");
-b = Convert.ToInt32(Console.ReadLine());
-Console.WriteLine("Enter third number: ");
-c = Convert.ToInt32(Console.ReadLine());
+      res += number;
+      return res;
+    }
 
-if(a>=b) max = a;
-else max = b;
-if(max<c) max = c;
+    // Task 29
+    public static void randomArr(int[] arr){
+      Random rnd = new Random();
 
-Console.WriteLine("max:= " + max + '\n');
+      for(int i=0;i<arr.Length;i++) 
+          arr[i] = rnd.Next(0,10);
 
-// Task 6
-a=0;
+      return;
+    }
+    static void Main(){
+      // Task 25
+      {
+      int a,b;
+      Console.Write("Enter A:= ");
+      a = Convert.ToInt32(Console.ReadLine());
+      Console.Write("Enter B:= ");
+      b = Convert.ToInt32(Console.ReadLine());
+      Console.WriteLine("Pow:= " + Pow(a,b) + "\n");
+      }
 
-Console.WriteLine("Task 6\n\n");
-Console.WriteLine("Enter number:= ");
-a = Convert.ToInt32(Console.ReadLine());
+      // Task 27
+      {
+        int a;
+        Console.Write("Enter number:= ");
+        a = Convert.ToInt32(Console.ReadLine());
+        Console.WriteLine("Sum:= " + sumNumber(a) + "\n");
+      }
 
-if(a%2 == 0){Console.WriteLine("Yes\n"); }
-else        {Console.WriteLine("No\n" );  }
+      // Task 29
+      {
+        int[] arr = new int[8];
+        randomArr(arr);
 
-// Task 8
-a=0;
-b=2;
-
-Console.WriteLine("Task 8\n\n");
-Console.WriteLine("Enter number:= ");
-a = Convert.ToInt32(Console.ReadLine());
-
-while(b<=a){
-    Console.WriteLine(b);
-    b+=2;
+        Console.Write("[");
+        for(int i=0;i<arr.Length-1;i++)
+          Console.Write(arr[i] + ", ");
+        Console.Write(arr[arr.Length-1] + "]\n");
+      }
+    }
 }
