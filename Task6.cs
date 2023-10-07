@@ -41,9 +41,11 @@ class Tasks{
         Console.Write("Введите k2: ");
         k2 = Convert.ToDouble(Console.ReadLine());
 
-        if(b1 == b2)
-            if (b2 == k2) Console.WriteLine("Прямые совпадают");
-            else          Console.WriteLine("Прямые паралленльны");
+        if(k1 == k2)
+            if (b2 == b2) 
+                Console.WriteLine("Прямые совпадают");
+            else
+                Console.WriteLine("Прямые паралленльны");
         else{
             double c1 = (b1 - b2) / (k2 - k1);
             double c2 = k2 * c1 + b2;
